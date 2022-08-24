@@ -86,10 +86,10 @@ class _FlutterPwValidatorState extends State<FlutterPwValidator> {
         hasMinNormalChar);
 
     hasMinLowercaseChar = conditionsHelper.checkCondition(
-        widget.normalCharCount,
-        validator.hasMinLowercaseChar,
+        widget.lowercaseCharCount,
+        validator.hasMinLowercase,
         widget.controller,
-        widget.translatedStrings.normalLetters,
+        widget.translatedStrings.lowercaseLetters,
         hasMinLowercaseChar);
 
     hasMinUppercaseChar = conditionsHelper.checkCondition(
