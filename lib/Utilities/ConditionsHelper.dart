@@ -10,13 +10,14 @@ class ConditionsHelper {
 
   /// Recognize user selected condition from widget constructor to put them on map with their value
   void setSelectedCondition(int minLength, normalCharCount, uppercaseCharCount,
-      numericCharCount, specialCharCount) {
+      numericCharCount, specialCharCount, lowercaseCharCount) {
     _selectedCondition = {
       if (minLength > 0) strings.atLeast: false,
       if (normalCharCount > 0) strings.normalLetters: false,
       if (uppercaseCharCount > 0) strings.uppercaseLetters: false,
       if (numericCharCount > 0) strings.numericCharacters: false,
-      if (specialCharCount > 0) strings.specialCharacters: false
+      if (specialCharCount > 0) strings.specialCharacters: false,
+      if (lowercaseCharCount > 0) strings.lowercaseLetters: false,
     };
   }
 

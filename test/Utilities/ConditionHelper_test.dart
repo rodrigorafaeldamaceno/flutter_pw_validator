@@ -18,12 +18,18 @@ void main() {
       int uppercaseCharCount = 0;
       int numericCharCount = 1;
       int specialCharCount = 0;
+      int lowercaseCharCount = 0;
 
       int expectedResult = 3;
 
       // act
-      conditionsHelper.setSelectedCondition(minLength, normalCharCount,
-          uppercaseCharCount, numericCharCount, specialCharCount);
+      conditionsHelper.setSelectedCondition(
+          minLength,
+          normalCharCount,
+          uppercaseCharCount,
+          numericCharCount,
+          specialCharCount,
+          lowercaseCharCount);
       int actualResult = conditionsHelper.getter()!.length;
 
       // assert
@@ -38,12 +44,18 @@ void main() {
       int uppercaseCharCount = 2;
       int numericCharCount = 2;
       int specialCharCount = 2;
+      int lowercaseCharCount = 0;
 
       int expectedResult = 5;
 
       // act
-      conditionsHelper.setSelectedCondition(minLength, normalCharCount,
-          uppercaseCharCount, numericCharCount, specialCharCount);
+      conditionsHelper.setSelectedCondition(
+          minLength,
+          normalCharCount,
+          uppercaseCharCount,
+          numericCharCount,
+          specialCharCount,
+          lowercaseCharCount);
       int actualResult = conditionsHelper.getter()!.length;
 
       // assert

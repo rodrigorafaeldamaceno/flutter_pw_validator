@@ -15,7 +15,8 @@ class FlutterPwValidator extends StatefulWidget {
       normalCharCount,
       uppercaseCharCount,
       numericCharCount,
-      specialCharCount;
+      specialCharCount,
+      lowercaseCharCount;
   final Color defaultColor, successColor, failureColor;
   final double width, height;
   final Function onSuccess;
@@ -33,6 +34,7 @@ class FlutterPwValidator extends StatefulWidget {
       this.numericCharCount = 0,
       this.specialCharCount = 0,
       this.normalCharCount = 0,
+      this.lowercaseCharCount = 0,
       this.defaultColor = MyColors.gray,
       this.successColor = MyColors.green,
       this.failureColor = MyColors.red,
@@ -59,7 +61,8 @@ class _FlutterPwValidatorState extends State<FlutterPwValidator> {
       hasMinNormalChar,
       hasMinUppercaseChar,
       hasMinNumericChar,
-      hasMinSpecialChar;
+      hasMinSpecialChar,
+      hasMinLowercaseChar;
 
   //Initial instances of ConditionHelper and Validator class
   late final ConditionsHelper conditionsHelper;
@@ -81,6 +84,13 @@ class _FlutterPwValidatorState extends State<FlutterPwValidator> {
         widget.controller,
         widget.translatedStrings.normalLetters,
         hasMinNormalChar);
+
+    hasMinLowercaseChar = conditionsHelper.checkCondition(
+        widget.normalCharCount,
+        validator.hasMinLowercaseChar,
+        widget.controller,
+        widget.translatedStrings.normalLetters,
+        hasMinLowercaseChar);
 
     hasMinUppercaseChar = conditionsHelper.checkCondition(
         widget.uppercaseCharCount,
@@ -134,7 +144,8 @@ class _FlutterPwValidatorState extends State<FlutterPwValidator> {
         widget.normalCharCount,
         widget.uppercaseCharCount,
         widget.numericCharCount,
-        widget.specialCharCount);
+        widget.specialCharCount,
+        widget.lowercaseCharCount);
 
     /// Adds a listener callback on TextField to run after input get changed
     widget.controller.addListener(() {
@@ -186,6 +197,8 @@ class _FlutterPwValidatorState extends State<FlutterPwValidator> {
                     value = widget.minLength;
                   if (entry.key == widget.translatedStrings.normalLetters)
                     value = widget.normalCharCount;
+                  if (entry.key == widget.translatedStrings.lowercaseLetters)
+                    value = widget.lowercaseCharCount;
                   if (entry.key == widget.translatedStrings.uppercaseLetters)
                     value = widget.uppercaseCharCount;
                   if (entry.key == widget.translatedStrings.numericCharacters)

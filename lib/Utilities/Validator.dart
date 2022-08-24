@@ -12,6 +12,12 @@ class Validator {
     return password.toUpperCase().contains(new RegExp(pattern));
   }
 
+  /// Checks if password has at least normal char letter matches
+  bool hasMinLowercaseChar(String password, int normalCount) {
+    String pattern = '^(.*?[A-Z]){' + normalCount.toString() + ',}';
+    return password.contains(new RegExp(pattern));
+  }
+
   /// Checks if password has at least uppercaseCount uppercase letter matches
   bool hasMinUppercase(String password, int uppercaseCount) {
     String pattern = '^(.*?[A-Z]){' + uppercaseCount.toString() + ',}';
